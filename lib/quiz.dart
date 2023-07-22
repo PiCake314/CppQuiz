@@ -12,6 +12,7 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   int question_index = 0;
   int score = 0;
+  List<int> user_answers = [];
 
   @override
   Widget build(BuildContext context) {
@@ -86,18 +87,19 @@ class _QuizState extends State<Quiz> {
                               score++;
                             }
 
+                            user_answers.add(i);
+
                             setState(() {
-                              if(question_index < questions.length - 1){
+                              if (question_index < questions.length - 1) {
                                 question_index++;
-                              }
-                              else{
+                              } else {
                                 Navigator.of(context).push(
                                   PageRouteBuilder(
                                     pageBuilder: (_, __, ___) => Results(
                                       score: score,
                                       total: questions.length,
+                                      answers: user_answers,
                                     ),
-
                                     transitionDuration:
                                         const Duration(milliseconds: 250),
                                     transitionsBuilder: (_, a, __, c) =>

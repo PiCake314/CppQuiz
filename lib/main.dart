@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "C++ Quiz!",
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.grey,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
